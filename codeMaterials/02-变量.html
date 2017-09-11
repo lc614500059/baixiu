@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>声明变量</title>
+</head>
+
+<body>
+  <script>
+    // 声明变量的格式
+    // 格式: var 变量名 = 变量值
+    // var name = "张三";
+
+    // alert(name);
+
+    // 1.声明一个变量
+    // var sName;
+    // alert(sName);// undefined  未定义    当声明了变量但是没有给值 值是默认的undefined
+
+    // 2.声明多个变量
+    var sName,iAge,sSex;
+    // alert是在浏览器上弹出窗口
+    // alert(iAge); 
+
+    // 在控制台(按f12 点击console)输出结果  
+    // console.log(sName,iAge,sSex);
+
+    // 3.声明一个变量并赋值
+    var name = "lily";
+    var age = 10;
+
+    console.log(name,age);
+
+    // 4.声明多个变量并赋值
+    var name = "lily" , age = 10, address = 'chinabeijing';
+
+    console.log(name,age,address);
+
+
+    // 最佳实践
+    // 1. 尽量不要声明不给值的变量
+    // 2. 尽量把所有变量的声明放到script标签的最上面
+    // 3. 如果要声明多个变量 就使用第4点的方式去声明
+
+  </script>
+</body>
+
+</html>

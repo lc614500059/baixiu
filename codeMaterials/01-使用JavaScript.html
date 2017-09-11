@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>在html中如何使用JavaScript</title>
+</head>
+<body>
+  <!--在html中如何使用JavaScript
+    1.行内
+    2.内嵌
+    3.外链
+  -->
+ <script>
+    alert("你好啊!!");
+  </script>
+  <!-- 1.行内 写javascript -->
+  <!-- on 当 
+      click 点击
+   -->
+  <p onclick="alert('你好!!')">点我看看</p>
+
+  <!-- 2.内嵌 使用script标签写javascript  在项目比较小的时候请使用内嵌 -->
+  <!-- <script>
+    alert("你好啊!!");
+  </script> -->
+
+
+  <!-- 3.外链 使用的script标签 的src属性 -->
+  <!-- ./  当前路径下      ./和什么都不写一样 只是./更标准
+        ../ 上一级目录下
+  -->
+   <script src="./helloWorld.js"> 
+    // alert("你真好看");
+    // 注意:如果你引入的js是外链形式 ,那么写在 script标签中的内容是会被忽略的
+    // script标签应该放在 body闭合标签的上面
+   </script> 
+</body>
+</html>
