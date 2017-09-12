@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // this出现在以下位置，分别代表什么
+//    1.函数中   this 指向window
+    function fn() {
+        console.log(this);
+    }
+//    fn();
+
+//    2.在方法中   this指向的是这个方法所谓的对象
+    var obj = {
+        name: 'zhangsan',
+        sayHi: function () {
+            console.log(this);
+        }
+    }
+//    obj.sayHi();
+
+//    3.构造函数中  this就是构造函数创建的对象
+    function Person(name, age, sex, color, skill) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.color = color;
+        this.skill = function () {
+            console.log(skill);
+        }
+        this.conso = function () {
+            console.log(this);
+        }
+    }
+    var caocao = new Person('曹操', 32, '男', 'white', '计谋');
+
+    // console.log(caocao);
+    // 自定义构造函数 可以创建多个对象
+
+    caocao.conso();
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
