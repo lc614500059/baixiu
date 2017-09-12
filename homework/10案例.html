@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // - 求10 - 20之间的随机数(包括20的)
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    //    console.log(getRandom(10, 20));
+
+    //   - 随机生成颜色RGB
+    // RGB取值范围0-255
+    //    setInterval(function () {
+    //        var r = getRandom(0, 255);
+    //        var g = getRandom(0, 255);
+    //        var b = getRandom(0, 255);
+    //        var oBody = document.getElementsByTagName('body')[0];
+    //        oBody.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+    //    }, 100)
+
+    //   - 模拟实现max() / min()
+    var myMath = {
+        max: function () {
+            if (arguments.length == 0
+            )
+            {
+                return -Infinity;
+            }
+            var maxValue = arguments[0];
+            for (var i = 1; i < arguments.length; i++) {
+                if (arguments[i] > maxValue) {
+                    maxValue = arguments[i];
+                }
+            }
+            return maxValue;
+        },
+        min: function () {
+            if (arguments.length == 0) {
+                return -Infinity;
+            }
+            var minValue = arguments[0];
+            for (var i = 1; i < arguments.length; i++) {
+                if (arguments[i] < minValue) {
+                    minValue = arguments[i];
+                }
+            }
+            return minValue;
+        }
+    }
+    console.log(myMath.max(10, 20, 1, 5));
+    console.log(myMath.min(10, 20, 1, 5));
+
+</script>
+</body>
+</html>

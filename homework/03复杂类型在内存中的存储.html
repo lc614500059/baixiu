@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // 复杂类型在内存中的存储
+    // 这是构造函数
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.sayHi = function () {
+            console.log('Hi');
+        }
+    }
+
+    var p = new Person('zs', 18);
+
+    var p1 = p;
+    p1.name = 'ls';
+    console.log(p.name);
+
+</script>
+</body>
+</html>
