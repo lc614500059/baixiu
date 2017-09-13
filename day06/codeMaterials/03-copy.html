@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    console.time('t');
+    // 写一个函数，格式化日期对象，返回yyyy-MM-dd HH:mm:ss的形式
+    // Wed Sep 13 2017 10:34:05 GMT+0800 (中国标准时间)  --> 2014-04-04 08:05:03
+
+
+
+    // var date = new Date();//获取当前时间
+
+    // 1.获取年 getFullYear()
+
+    // 2.获取月份 getMonth()+1
+
+    // 3.获取天  getDays()
+
+    // 4.获取  小时 getHours();
+
+
+    // 步骤:
+
+    // 1.声明一个函数 formatDate  传入日期的参数
+    function formatDate(date) {
+      // 2.判断是否是一个日期数据 如果不是 终止 还要告诉用户 不是一个日期对象
+      if (!(date instanceof Date)) {
+        alert('您的日期格式错误!!!');
+        // return就是为了终止函数执行
+        return;
+      }
+      // 3. 声明一个变量 去获取 年
+      var year = date.getFullYear();
+      // 4. 声明一个变量 去获取月
+      var month = date.getMonth() + 1;
+      // 5. 声明一个变量 去获取 日
+      // var day = date.getDay();
+      var day = date.getDate();
+      // 6. 声明一个变量 去获取 小时
+      var hour = date.getHours();
+      // 7.声明一个变量  去获取 分钟
+      var minute = date.getMinutes();
+      // 8. 声明一个变量 去获取 秒
+      var second = date.getSeconds();
+      // 9. 判断 判断该值是否大于9  如果大于9 那么值为自身 否则加0
+      month = month > 9 ? month : '0' +  month;
+      day = day > 9 ? day : '0' +day;
+      hour = hour > 9 ? hour :'0'+hour;
+      minute = minute > 9 ? minute :'0'+minute;
+      second = second > 9 ? second :'0'+second;
+      // 10.返回该值
+      return year +'-' + month +'-' +day + '  ' + hour + ":" + minute +':' +second;
+    }
+
+    var date = new Date();
+
+    var result = formatDate(date);
+    console.log(result);
+
+
+    // 通过date.getDay();获取的是一周中的第几天
+    // 有一个方法 date.getDate() 获取的是一月中的第几天
+
+
+    // 计算时间差，返回相差的天/时/分/秒
+    //  1.要有一个起始时间
+    // 2.要有一个结束时间
+    // 3.要去换算时间
+    // 4.返回时间(返回一个整体的对象)
+
+
+    // 步骤
+    // 1.声明函数  确定输入 起始时间 结束时间
+    function dValue(startDate, endDate) {
+      if (!(startDate instanceof Date) || !(endDate instanceof Date)) {
+        alert('您的日期格式错误!!!');
+        // return就是为了终止函数执行
+        return;
+      }
+      // 2. 计算差值
+      var dvalue = endDate - startDate;//1077097133ms
+      dvalue = dvalue / 1000; //总时间就变成了秒
+      // console.log(dvalue);
+      // 3. 换算单位
+
+      var day = Math.floor(dvalue / 60 / 60 / 24);// 天
+      var hour = Math.floor(dvalue / 60 / 60 % 24);//小时
+      var minute = Math.floor(dvalue / 60 % 60);//分钟
+      var second = Math.floor(dvalue % 60);//秒
+      // 4.返回一个匿名对象 其中 天 小时 分钟 秒 作为匿名对象的属性
+      return {
+        day: day,
+        hour: hour,
+        minute: minute,
+        second: second
+      }
+    }
+
+    var start = new Date(2017, 8, 1);//2017年9-1日
+    var end = new Date();// 2017年9-13日
+
+  var result =  dValue(start, end);
+  console.log(result);
+
+  // console.time()计算时间差的起始时间 time()中的字符串一定要和timeEnd中的字符串一致
+  // console.timeEnd();计算时间差的停止时间
+
+  console.timeEnd('t');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 写一个函数，格式化日期对象，返回yyyy-MM-dd HH:mm:ss的形式
+    function formatDate(date) {
+      // 如果传入的参数 不是日期对象,那么立即终止
+      if (!(date instanceof Date)) {
+        return;
+      }
+
+      // 处理日期
+      var year = date.getFullYear();
+
+      var month = date.getMonth() + 1;
+
+      var day = date.getDay();
+
+      var hour = date.getHours();
+
+      var mintue = date.getMinutes();
+
+      var second = date.getSeconds();
+
+      // 判断除了年以外的其他数据是否是两位数
+      month = month > 9 ? month : '0' + month;
+
+      day = day > 9 ? day : '0' + day;
+
+      hour = hour > 9 ? hour : '0' + hour;
+
+      mintue = mintue > 9 ? mintue : '0' + mintue;
+
+      second = second > 9 ? second : '0' + second;
+
+      return year + '-' + month + '-' + day + '  ' + hour + ':' + mintue + ':' + second;
+    }
+
+    var d = new Date();
+
+    var result = formatDate(d);
+    console.log(result);
+
+
+    // 计算时间差，返回相差的天/时/分/秒
+    function getInterval(start, end) {
+      var interval = end - start;//算出相差的毫秒数
+      // 算出相差的秒数
+      interval = interval / 1000;
+
+
+      // 把获取的秒数换算成 天 小时 分钟 秒
+      var day = Math.floor(interval / 60 / 60 / 24);//天
+      var hour = Math.round(interval / 60 / 60 % 24);//小时
+      var minute = Math.round(interval / 60 % 60);//分钟
+      var second = Math.round(interval % 60);//秒
+
+      return {
+        day: day,
+        hour: hour,
+        minute: minute,
+        second: second
+      }
+    }
+
+    var d1 = new Date(2017, 8, 1);
+    var d2 = new Date();
+    
+    console.log(d1);
+    console.log(d2);
+
+    var time = getInterval(d1, d2);
+    console.log(time);
+  </script>
+</body>
+
+</html>

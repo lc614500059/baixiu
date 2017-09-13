@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var date = new Date();
+  
+    // toString()方法总是返回一个美式英语日期格式的字符串。
+   console.log(date);//toString()方法在date对象内部已经被使用了如果想打出原始值
+  //     // console.log(date.valueOf()); //valueOf会返回该值的原始值 1505269167278 单位是毫秒
+  //   // toDateString(); 方法以美式英语和人类易读的形式返回一个日期对象日期部分的字符串。
+  //   console.log(date.toDateString());
+  //   // toTimeString();返回一个日期对象时间部分的字符串
+  // console.log(date.toTimeString());
+
+
+
+    // getFullYear();
+    // console.log(date.getFullYear());
+    // getMonth()
+    // console.log(date.getMonth());// 8
+    // getDate();
+    // console.log(date.getDay());getDay() 返回一个整数值： 0 代表星期日， 1 代表星期一，2 代表星期二， 依次类推。
+    // getHours();
+      // console.log(date.getHours());
+    // getMinutes();
+    //  console.log(date.getMinutes());
+    // getSeconds();
+    // console.log(date.getSeconds());
+
+
+    // 如何判断日期对象是一个日期呢?
+    // console.log(typeof date);
+    // instanceof 来判断日期数据是一个日期类型的数据
+    // console.log(date instanceof Date);// 判断date是不是一个日期数据 如果是返回true 如果不是 返回false
+
+    // var arr = [1,2,3,4];
+    // console.log(arr instanceof Array);
+  </script>
+</body>
+
+</html>

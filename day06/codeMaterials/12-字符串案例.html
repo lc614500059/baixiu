@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 字符串的所有方法 都不会修改原始字符串(字符串的不可变性)，都会返回一个新的字符串
+
+    // 截取字符串"我爱中华人民共和国"，中的"中华"
+    // var str = "我爱中华人民共和国";
+
+    // str = str.substring(2,4);//左闭右开区间
+    // console.log(str);
+
+    // "abcoefoxyozzopp"查找字符串中所有o出现的位置
+    var str = 'abcoefoxyozzopp';
+    var array = [];
+    do {
+      var index = str.indexOf('o',index + 1);
+
+      if(index !=-1){
+        array.push(index);
+      }
+    }while(index > -1);
+
+    console.log(array);
+    // 把字符串中所有的o替换成!
+    // var s = 'abcoefoxyozzopp';
+    // var index =-1;
+    // do{
+    //   index = s.indexOf('o',index+1);
+    //   if(index!== -1){
+    //     s=s.replace('o','!');
+    //   }
+    // }while(index!== -1);
+    // console.log(s);
+
+
+    // 把字符串中的所有空白去掉'   abc       xyz  a    123   '
+    // var str = '   abc       xyz  a    123   ';
+    // var arr = str.split('');
+    // var newArr =[];
+    // // console.log(arr);
+    // for(var i = 0;i<arr.length;i++){
+    //   if(arr[i] != ' '){
+    //     newArr[newArr.length] = arr[i];
+    //   }
+    // }
+    // console.log(newArr.join(''));
+
+    // 判断一个字符串中出现次数最多的字符，统计这个次数
+    // var str = 'abcoefoxyozzopp';
+    // var o = {};
+
+    // for(var i =0;i<str.length;i++){
+    //   // console.log(str[i]);
+    //   var item =str[i];
+    //   if(o[item]){
+    //     o[item]++;
+    //   }else {
+    //     o[item] = 1;
+    //   }
+    // }
+    // console.log(o);
+
+    // 找出出现次数最多的字符
+    // var max = 0;
+    // var char ;
+    // for(var k in o){
+    //   if(max< o[k]){
+    //     max = o[k];
+    //     char = k;
+    //   }
+    // }
+
+    // console.log(max);
+    // console.log(char);
+  </script>
+</body>
+
+</html>
