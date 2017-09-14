@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var array = [1, 2, 3, 4, 5];
+    // 1.push() 将一个或多个元素添加到数组的末尾,
+    // 并返回新数组的长度
+    //    var result = array.push('a', 6, true);
+    //    console.log(result);
+    //    console.log(array);
+
+    // 2.pop();从数组中删除最后一个元素,
+    // 并返回该元素的值.
+    //    var result = array.pop();
+    //    console.log(result);
+    //    console.log(array);
+
+    // 3.shift();方法从数组中删除第一个元素，
+    // 并返回该元素的值
+    //    var result = array.shift();
+    //    console.log(result);
+    //    console.log(array);
+
+    // 4.unshift();将一个或多个元素添加到数组的开头，
+    // 并返回新数组的长度
+    //    var result = array.unshift('a', 6, true);
+    //    console.log(array);
+
+    // 5.reverse();倒序
+    //    array.reverse();
+    //    console.log(array);
+
+    // 6.toString() 返回一个字符串，
+    // 表示指定的数组及其元素。
+    //    var result=array.toString();
+    //    console.log(result);
+
+    // 7.join()方法将数组（或一个类数组对象）
+    // 的所有元素连接到一个字符串中。
+    //    var result=array.join('|');
+    //    console.log(result);
+
+    // 8.indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，
+    // 如果不存在，则返回-1。
+    //    var index=array.indexOf(6);
+    //    console.log(index);
+
+    // 8.filter()方法创建一个新数组,
+    // 其包含通过所提供函数实现的测试的所有元素。
+    //    var arr = [12, 20, 40, 30];
+    //    function fil(value) {
+    //        return value >= 20;
+    //    }
+    //    var newArr = arr.filter(fil);
+    //    console.log(newArr);
+
+    // 9.sort();方法在适当的位置对数组的元素进行排序
+    // ，并返回数组
+    //    var array = [20, 40, 12, 60, 34];
+    //    var result = array.sort();
+    //    console.log(result);
+
+
+//    倒序
+    var array = [20, 40, 12, 60, 34];
+    function compareNumbers(a, b) {
+        return b - a;
+    }
+    var result = array.sort(compareNumbers);
+    console.log(result);
+
+
+</script>
+</body>
+</html>

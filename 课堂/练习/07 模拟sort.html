@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //    function sort(array, fnCompare) {
+    //        for (var i = 1; i < array.length - 1; i++) {
+    //            var isSort = true;
+    //            for (var j = 0; j < array.length - 1 - i; j++) {
+    //                if (fnCompare(array[j], array[j + 1]) > 0) {
+    //                    isSort = false;
+    //                    var temp = array[j];
+    //                    array[j] = array[j + 1];
+    //                    array[j + 1] = temp;
+    //                }
+    //            }
+    //            if (isSort) {
+    //                break;
+    //            }
+    //        }
+    //    }
+    //    var sort = [56, 10, 1, 17];
+    //    //    console.log(sort([56, 10, 1, 17]));
+    //    sort(array, fnCompare);
+    //    console.log(arr);
+
+    // 从大到小排列
+    //     1.定义一个排序规则(从大到小)
+//    function compareNumbers(a, b) {
+//        return b - a;
+//    }
+//    sort(arr, compareNumbers);
+//    console.log(arr);
+
+//    console.log(arr);
+
+
+    var strArr = ['abc', 'ab', 'a'];
+    function compareNumbers(a, b) {
+        return a.length - b.length;
+    }
+
+    var newArr = strArr.sort(compareNumbers);
+    console.log(newArr);
+
+
+</script>
+</body>
+</html>
