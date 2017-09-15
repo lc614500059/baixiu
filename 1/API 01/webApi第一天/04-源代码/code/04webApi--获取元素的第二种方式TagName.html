@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>div</div>
+		<div id="aa">div2</div>
+		<div>div3</div>
+	</body>
+	<script type="text/javascript">
+//		document.getElementsByTagName('标签名');
+		var  abc = document.getElementsByTagName("div");
+		console.log(abc);
+		
+		abc[0].style.backgroundColor = "green";
+		
+		abc[2].style.border = "1px solid red";
+		
+		var oAa = document.getElementById("aa");
+		//console.log(oAa);
+		console.dir(oAa); 
+		
+	</script>
+</html>

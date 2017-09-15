@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				font-family: "Helvetica", "Arial", serif;
+				color: #333;
+				background-color: #ccc;
+				margin: 1em 10%;
+			}
+			
+			h1 {
+				color: #333;
+				background-color: transparent;
+			}
+			
+			a {
+				color: #c60;
+				background-color: transparent;
+				font-weight: bold;
+				text-decoration: none;
+			}
+			
+			ul {
+				padding: 0;
+			}
+			
+			li {
+				float: left;
+				padding: 1em;
+				list-style: none;
+			}
+			
+			#imagegallery {}
+			
+			#imagegallery a {
+				margin: 0px 20px 20px 0px;
+				padding: 0px;
+				display: inline;
+			}
+			
+			#imagegallery a img {
+				border: 0;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<h2>
+		    美女画廊
+		</h2>
+
+		<div id="imagegallery">
+			<a href="images/1.jpg" title="美女A">
+				<img src="images/1-small.jpg" width="100px" alt="美女1" />
+			</a>
+			<a href="images/2.jpg" title="美女B">
+				<img src="images/2-small.jpg" width="100px" alt="美女2" />
+			</a>
+			<a href="images/3.jpg" title="美女C">
+				<img src="images/3-small.jpg" width="100px" alt="美女3" />
+			</a>
+			<a href="images/4.jpg" title="美女D">
+				<img src="images/4-small.jpg" width="100px" alt="美女4" />
+			</a>
+		</div>
+
+		<div style="clear:both"></div>
+
+		<img id="image" src="images/placeholder.png" alt="" width="450px" />
+
+		<p id="des">选择一个图片</p>
+
+	</body>
+	<script type="text/javascript">
+		
+		// 分析思路：
+		// 1 单击任何链接中一个a链接 将这个链接的大图 放到 下面的img标签的src里面 就可以展示出来大图了
+		// 2 单击任何一个链接 应该让当前单击的这个a链接的title 里面的文字赋给 div里面的内容
+		
+		
+		// 事件三要素:
+		
+		// 1 先获取事件相关的元素  所有的a链接 下面的id名为image的图  div
+			var imgBox = document.getElementById("imagegallery");
+			//从imgBox里面的获取的所有的a链接
+			var aA = imgBox.getElementsByTagName("a");
+			//下面的img标签
+			var oImage = document.getElementById("image");
+			// 下面的div
+			var oDiv = document.getElementsByTagName("div")[1];
+			
+			//console.log(oDiv.innerHTML);
+			//oDiv.innerHTML = "<strong>哈哈哈</strong>"
+		// 2 事件类型 给所有的a链接添加 单击事件
+			// 循环所有的a链接  给他们都注册单击事件
+			for(var i = 0; i < aA.length; i++) {
+				
+				aA[i].onclick = function() {
+					
+					// 需要将当前的a链接的href属性里面的路径 赋给下面的图片的src
+					oImage.src = this.href;
+					// 需要将当前的a链接的title属性 赋给下面的div里面 当成div的内容
+					
+					//console.log(this.title);
+					
+					oDiv.innerHTML = this.title;
+					
+					// 某一个元素.innerHTML 意思是这个元素的里面的内容（这个内容包含html标签还有文本）
+					// 阻止a链接的默认行为  也就是阻止a链接进行跳转
+					return false;
+				}
+			}
+			
+			// 1 把课上代码过一遍 
+			// 2 把要求的案例 敲三遍  （为了去熟练 代码   提高手速  加深理解）
+			// 3 把上课的word笔记认真看一下
+	</script>
+</html>

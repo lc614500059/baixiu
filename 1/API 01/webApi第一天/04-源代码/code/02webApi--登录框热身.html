@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				cursor: pointer;
+			}
+			#box {
+				width: 210px;
+				height: 25px;
+				line-height: 25px;
+				text-align: center;
+				font-size: 12px;
+				border: 1px solid red;
+				background-color: #fff;
+				color: red;
+				position: relative;
+				left: 100px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		用户名：<input type="text" /><br />
+		密&nbsp;&nbsp;&nbsp;码：<input type="password"  /><br /><br />
+		<input type="checkbox" /><span id="text">十天之内免登陆</span>
+		<div id="box">禁止在公共场所或者网吧打勾</div>
+	</body>
+	<script>
+			
+			// 1 观察页面 看效果 总结出来具体的功能是什么
+//				我鼠标移到文字身上  让红色的提示框出来
+//				我鼠标移开文字    让红色的提示框消失
+//			   2 先布局 html+css (靠谱一些)
+//			   3 写js(你看到的效果 总结分析出来一个编程思路 运用js语法 实现功能)
+			
+			   /*我鼠标移到文字身上  让红色的提示框出来  
+			   我们想要玩这个效果 先要获取相关元素 (先准备好人物角色)  文字  提示框*/
+			  
+			  //console.log(span)  需要通过dom的一些方法去获取元素
+			 /*  这是第一种获取页面中元素的方法 （一个dom 的api)
+			   在文档下    通过id名的方式 去获取页面中的元素
+			  document.getElementById(id名 是字符串类型)*/
+			  //console.log(document.getElementById('box'));
+			  
+			  // 第一步 先获取元素
+			  //文本span
+			  var oSpan = document.getElementById('text');
+			  // 获取提示框
+			  var oBox = document.getElementById("box");
+			  
+		      console.log(oBox);
+//			  console.log(oSpan);
+			  
+			  console.dir(oBox);//这个方法专门用来打印 对象的信息  打印的比较详细
+			  
+			  // 第二步   实现功能
+			  // 两个事件   mouseover 鼠标移上       mouseout鼠标移出
+			  
+			 // 我鼠标移到文字身上  让红色的提示框出来
+			  oSpan.onmouseover = function() { // 要实现一个功能 
+			  	// 做事情 让红色的提示框出来
+			  	oBox.style.display="block";
+			  }
+			  
+			   // 我鼠标移开文字  
+			  oSpan.onmouseout = function() {
+			  	// 做事情  让红色的提示框消失
+			  	oBox.style.display = "none";
+			  }
+			 /* 标识符的命名规则:
+			   规则 
+			  规范*/
+	</script>
+</html>

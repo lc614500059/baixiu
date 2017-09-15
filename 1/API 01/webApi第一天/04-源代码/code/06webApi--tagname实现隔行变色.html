@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<style type="text/css">
+			ul li:nth-child(odd) {
+				background: orange;
+			}
+			ul li:nth-child(even) {
+				background: red;
+			}
+		</style>-->
+	</head>
+	<body>
+		<ul id="oUl">
+			<li>第1个li的内容</li>
+			<li>第2个li的内容</li>
+			<li>第3个li的内容</li>
+			<li>第4个li的内容</li>
+			<li>第5个li的内容</li>
+			<li>第6个li的内容</li>
+			<li>第7个li的内容</li>
+			<li>第8个li的内容</li>
+		</ul>
+		<li>1111</li>
+		<li>2222</li>
+		<li>3333</li>
+		<li>44444</li>
+	</body>
+	<script>
+		// 实现所有的li 隔行变色 
+		// 第一步 先获取所有的li
+		
+		var oUl = document.getElementById("oUl");
+		var aLi = oUl.getElementsByTagName("li")
+		//var aLi = document.getElementsByTagName("li");
+		// 第二步： 实现隔行变色 集合 length 下标索引
+		
+		/*aLi[0].style.backgroundColor = "red";
+		aLi[1].style.backgroundColor = "orange";
+		aLi[2].style.backgroundColor = "red";
+		aLi[3].style.backgroundColor = "orange";
+		aLi[4].style.backgroundColor = "red";
+		aLi[5].style.backgroundColor = "orange";
+		aLi[6].style.backgroundColor = "red";
+		aLi[7].style.backgroundColor = "orange";*/
+		
+		for(var i = 0; i < aLi.length; i++) {
+			
+			if(i%2==0) {
+				aLi[i].style.backgroundColor = "red";
+			}else {
+				aLi[i].style.backgroundColor = "pink";
+			}
+			
+		}
+		
+	</script>
+</html>

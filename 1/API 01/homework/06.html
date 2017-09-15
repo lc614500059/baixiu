@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        img{
+
+        }
+
+    </style>
+</head>
+<body>
+<!--点击按钮修改每个图片的title属性值-->
+<input type="button" value="点击"/> <br/>
+<img src="image/1-small.jpg"  title="1"/>
+<img src="image/2-small.jpg" title="2" />
+</body>
+<script>
+    var aInp=document.getElementsByTagName("input")[0];
+    var aImg=document.getElementsByTagName("img");
+    aInp.onclick=function() {
+        for (var i = 0; i < aImg.length; i++) {
+            aImg[i].onmouseover = function () {
+                this.title = "nihao";
+            }
+        }
+
+    }
+
+
+</script>
+</html>

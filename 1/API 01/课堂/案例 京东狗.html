@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="隐藏"/>
+
+<div id="box"></div>
+</body>
+<script>
+    var oBtn = document.getElementsByTagName("input");
+    var oBox = document.getElementById("box");
+    oBtn[0].onclick = function () {
+        if (this.value == "隐藏") {
+            this.value = "显示";
+            oBox.style.display = "none";
+        } else {
+            this.value = "隐藏";
+            oBox.style.display = "block";
+
+        }
+    }
+</script>
+</html>

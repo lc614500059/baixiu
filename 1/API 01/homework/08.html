@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            background-color: #cc6600;
+        }
+
+    </style>
+</head>
+<body>
+<!--点击每个li标签设置当前的li类样式-->
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+</body>
+<script>
+    var on=true;
+    var aLi=document.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++){
+        if(on){
+            aLi[i].onclick=function(){
+                this.style.backgroundColor="pink";
+            }
+        }else{
+            aLi[i].onclick=function(){
+                this.style.backgroundColor="#cc6600";
+        }
+    }
+//        on=!on;
+
+    }
+
+
+</script>
+</html>
