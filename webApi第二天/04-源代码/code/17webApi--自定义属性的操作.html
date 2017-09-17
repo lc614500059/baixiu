@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div id="box" def="尼古拉斯赵四"  class="aa abc nav" title="盒子">box</div>
+	</body>
+	<script type="text/javascript">
+		
+		var oBox = document.getElementById("box");
+		
+		//　　获取的方式　：　元素．它的属性
+		//　　设置属性：　元素．它的属性　＝　你要设置的
+		
+		console.log(oBox.id);
+		console.log(oBox.className);
+		console.log(oBox.title);
+		
+		//oBox.id = "haha";
+		//oBox.id = "";
+		/*oBox.onclick = function() {
+			alert("这个单击事件可以触发");
+		}*/
+		
+		// 我们自己定义一个自定义属性
+		
+		oBox.abc = "呵呵";
+		
+		console.log(oBox.abc); // 
+		// 我们通过  元素．你给它加的属性 = "" 这种方式设置属性  可以直接在js中使用
+		// 但是在页面上没有添加这个自定义属性
+		
+		console.log(oBox.def);// undefined  如果一个属性不存在 那么它的值为undefined
+		// 说明获取不到
+		
+		// getAttribute() 可以获取自定义属性 当然也可以获取常规属性
+		console.log( oBox.getAttribute("title") );
+		console.log( oBox.getAttribute("def") );
+		
+		// setAttribute() 可以设置常规属性和自定义属性
+		//它添加的自定义属性　可以在页面上生成
+		oBox.setAttribute("zzz","你好"); 
+		
+		//　removeAttribute() 移除属性（常规属性和自定义属性）
+		oBox.removeAttribute("title");
+		oBox.removeAttribute("zzz");
+	</script>
+</html>

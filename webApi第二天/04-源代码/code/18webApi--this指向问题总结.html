@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="box">box</div>
+		
+	</body>
+	<script type="text/javascript">
+		
+		function fn() {
+			
+			console.log(this);
+			
+		}
+		
+		//fn();// 1   函数的直接调用  函数内部的this 指向window  相当于window在调用函数
+		
+		//window.fn();
+		
+		
+		var fn1 = new fn();  //2  通过new 的方式调用函数  那个函数是构造函数，里面你的
+		// this是一个隐式对象 虚拟的对象 可以理解为是一个初始化的模型
+		// 如果打印this  this打印的结果是当前的构造函数
+		
+		
+		var obj = {
+			fn:function () {
+				console.log(this);
+			}
+		}
+		
+		obj.fn(); //3  obj这个对象在调用它的方法 这个方法里面的this 指向当前的对象
+		
+		
+		var oBox = document.getElementById("box");
+		
+		oBox.onclick = fn; //通过一个事件来触发这个函数 那么这个函数里面的this指向
+		//this指向 触发该事件的前面的那个元素对象
+	</script>
+</html>
