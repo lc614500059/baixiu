@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // 方案一: 使用第三个变量(适用于任何变量)
+    var iFirstNum = 5;
+    var iSecondNum = 6;
+    //    var temp;
+    //    temp = iFirstNum;
+    //    iFirstNum = iSecondNum;
+    //    iSecondNum = temp;
+    //    console.log(iFirstNum, iSecondNum);
+
+    //    方案二: 不使用第三个变量
+    iFirstNum = iFirstNum + iSecondNum;//11
+    iSecondNum = iFirstNum - iSecondNum;//5
+    iFirstNum = iFirstNum - iSecondNum;//6;
+    console.log(iFirstNum, iSecondNum);
+
+</script>
+</body>
+</html>

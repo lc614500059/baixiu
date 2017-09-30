@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    求1-100之间所有数的和
+    // var sum = 0;
+    //  for(var i = 0;i<=100;i++){
+    //   sum+=i;
+    //  }
+    //  console.log(sum);
+    // 求1-100之间所有数的和平均值
+    // 所有数的和是5050
+    // 总共有100个数  所以平均数是50.5
+    // var sum = 0;// 所有数的和
+    // var cont = 0;// 有多少个数
+    // for(var i = 1;i<= 100;i++) {
+    //   cont = i;
+    //   sum+=i;
+    // }
+
+    // console.log(sum/cont);
+
+    // 求1-100之间所有偶数的和
+    // var sum = 0;
+    //   for(var i = 1;i<= 100;i++) {
+    //     // 判断整个数是否是偶数 如果是偶数 挑出来进行加法运算
+    //     if(i%2 == 0) {
+    //       sum+= i;
+    //     }
+    //   }
+
+    // console.log(sum);
+
+    // 同时求1-100之间所有偶数和奇数的和
+    var sumJi = 0;
+    var sumOu = 0;
+
+    for(var i= 1;i<=100;i++){
+        if(i%2){
+            // 奇数
+            sumJi+= i;
+        }else {
+            // 偶数
+            sumOu+=i;
+        }
+    }
+
+    console.log(sumJi,sumOu);
+
+
+
+</script>
+</body>
+</html>
