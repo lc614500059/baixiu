@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // 1 对象字面量(张飞)
+    //    var person = {
+    //        name: '张飞',
+    //        age: 35,
+    //        sex: '男',
+    //        color: '黑',
+    //        skill: function () {
+    //            console.log('卖肉');
+    //        }
+    //    }
+
+
+    // 2 new Object()
+    var person = new Object();
+    person.name = "妲己";
+    person.age = 18;
+    person.sex = "女";
+    person.color = 'pink';
+    person.skill = function () {
+        console.log("魅惑");
+    }
+
+    console.log(person);
+
+    //    3.工厂方法
+    function craetPerson(name, age, sex, color, skill) {
+        var person = new Object();
+        person.name = name;
+        person.age = age;
+        person.sex = sex;
+        person.color = color;
+        person.skill = function () {
+            console.log(skill);
+        }
+
+        return person;
+    }
+
+    // 刘备
+    var liubei = createPerson('刘备', 40, '男', 'yellow', '哭');
+
+
+    // 4 自定义构造函数
+    function Person(name, age, sex, color, skill) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.color = color;
+        this.skill = function () {
+            console.log(skill);
+        }
+        this.conso = function () {
+            console.log(this);
+        }
+    }
+    //  赵云
+    var caocao = new Person('曹操', 32, '男', 'white', '计谋');
+
+
+</script>
+</body>
+</html>
