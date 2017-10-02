@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<input type="button" value="显示"/>
+<input type="button" value="隐藏"/>
+<div id="box"></div>
+</body>
+<script>
+    var aInp=document.getElementsByTagName("input");
+    var oBox=document.getElementById("box");
+    aInp[0].onclick=function(){
+        oBox.style.display="block";
+    }
+    aInp[1].onclick=function(){
+        oBox.style.display="none";
+    }
+
+
+
+
+</script>
+</html>

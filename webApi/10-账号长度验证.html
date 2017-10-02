@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input {
+            border: 0;
+            border: 1px solid #ccc;
+            width: 300px;
+            height: 30px;
+            margin: 10px;
+            /*获取插入条之后的蓝色外边框去除*/
+            outline-style: none;
+            padding-left: 10px;
+            font-size: 18px;
+        }
+
+        .wrong {
+            border: 1px solid red;
+        }
+
+        .wrong-span {
+            color: red;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .right {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+账号:<input type="text"><span></span><br>
+密码:<input type="text"><span></span>
+</body>
+<script>
+    var aInp = document.getElementsByTagName("input");
+    var aSpan = document.getElementsByTagName("span");
+    aInp[0].onblur = function () {
+        var str = this.value;
+        if (str === "") {
+            aSpan[0].innerHTML = "请您输入内容";
+
+        }
+    }
+    aInp[0].oninput = function () {
+        var str = this.value;
+        if (str.length < 6 || str.length > 20) {
+            aSpan[0].innerHTML = "错了,您输入的内容不符合规则 应该在6-20个字符之间";
+            this.className = "wrong";
+            aSpan[0].className = 'wrong-span';
+        } else {
+            this.className = "";
+            aSpan[0].className = 'right';
+            aSpan[0].innerHTML = "恭喜,您输入的内容正确";
+        }
+
+    }
+
+
+</script>
+</html>

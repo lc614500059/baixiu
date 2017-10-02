@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box" title="盒子">哈哈<!--这是一个注释--></div>
+<ul id="oUl">
+    <li>1111</li>
+    <li>222</li>
+    <li id="aa">333</li>
+    <li>4444</li>
+</ul>
+<ol id="oOl">
+
+</ol>
+</body>
+<script>
+
+    var oUl = document.getElementById("oUl");
+    // oUl.childNodes[1].style.backgroundColor = "blue";
+    // oUl.children[0].style.backgroundColor = "blue";
+
+    //    console.log(oUl.firstChild);
+    // oUl.firstChild.style.backgroundColor = "pink";
+
+    // oUl.firstElementChild.style.backgroundColor = "purple";
+    //
+    //    var child = oUl.firstElementChild || oUl.firstChild;
+    //
+    //    if (child && child.nodeType == 1) {
+    //        child.style.backgroundColor = "green";
+    //    }
+
+
+    //    first(oUl);
+    function first(obj) {
+        var firstEle = obj.firstElementChild || obj.firstChild;
+
+        if (firstEle && firstEle.nodeType == 1) {
+            return firstEle;
+        } else {
+            return null;
+        }
+
+    }
+
+    var oUl = document.getElementById("oUl");
+    if (first(oUl)) {
+        first(oUl).style.backgroundColor = "yellow";
+    } else {
+        alert("没有元素子节点");
+    }
+
+    var oOl = document.getElementById("oOl");
+    if (first(oOl)) {
+        first(oOl).style.backgroundColor = "yellow";
+    } else {
+        alert(oOl + "没有元素子节点");
+    }
+
+
+    var aa = document.getElementById("aa");
+    prev(aa)
+    function prev(obj) {
+        var prevEle = obj.previousElementSibling || obj.previousSibling;
+
+        if (prevEle && prevEle.nodeType == 1) {
+            return prevEle;
+        } else {
+            return null;
+        }
+    }
+</script>
+</html>

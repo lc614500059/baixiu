@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            margin: 10px auto 0;
+            border: 1px solid black;
+        }
+
+        ul, h3 {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        ul li {
+            list-style: none;
+            height: 30px;
+            font；20px/30px "微软雅黑";
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <h3>标题</h3>
+    <ul>
+        <li>新闻</li>
+        <li>娱乐</li>
+        <li>体育</li>
+        <li>头条</li>
+    </ul>
+</div>
+</body>
+<script src="myTools.js"></script>
+<script>
+    var oBox = document.getElementById("box");
+    var aH3 = $("h3", oBox)[0];
+
+    var on = true;
+    aH3.onclick = function (e) {
+        e = e || event;
+        e.cancelBubble = true;
+        if (on) {
+            next(this).style.display = "none";
+        } else {
+            next(this).style.display = "block";
+        }
+        on = !on;
+    }
+    document.onclick = function () {
+        next(aH3).style.display = "none";
+        on = false;
+
+    }
+
+
+</script>
+</html>

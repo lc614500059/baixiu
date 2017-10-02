@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #oUl {
+            width: 280px;
+            height: 200px;
+            border: 1px solid darkgoldenrod;
+        }
+    </style>
+</head>
+<body>
+<ul id="oUl">
+    <li>你发表的留言<a href="javascript:;">删除</a></li>
+    <li>2222<a href="javascript:;">删除</a></li>
+    <li>你发表33333的留言<a href="javascript:;">删除</a></li>
+    <li>你发4444表的留言<a href="javascript:;">删除</a></li>
+    <li>555555<a href="javascript:;">删除</a></li>
+    <li>66666<a href="javascript:;">删除</a></li>
+    <li>777<a href="javascript:;">删除</a></li>
+</ul>
+<input type="text" id="text"/>
+<input type="button" value="单击发送" id="btn"/>
+</body>
+<!--<script src="MyTool.js"></script>-->
+<script>
+    var oUl = document.getElementById("oUl");
+    var oText = document.getElementById("text");
+    var oBtn = document.getElementById("btn");
+    oUl.onclick = function (e) {
+        e = e || event;
+        var target = e.target || e.srcElement;
+        if (target.nodeName == "A") {
+            this.removeChild(target.parentNode);
+        }
+    }
+
+
+</script>
+</html>

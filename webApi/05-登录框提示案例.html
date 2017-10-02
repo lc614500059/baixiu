@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #text {
+            cursor: pointer;
+        }
+
+        #box {
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #fff;
+            border: 1px solid red;
+            color: red;
+            position: relative;
+            left: 100px;
+            text-align: center;
+            font-size: 12px;
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+用户名：<input type="text"/> <br/>
+密&nbsp&nbsp&nbsp码：<input type="password"/> <br/><br/>
+<input type="checkbox"/><span id="text">十天之内免登陆</span>
+
+<div id="box">禁止在公共场所或者网吧打勾</div>
+</body>
+<script>
+    var oBox = document.getElementById("box");
+    var oText = document.getElementById("text");
+    oText.onmouseover=function(){
+        oBox.style.display="block";
+    }
+    oText.onmouseout=function(){
+        oBox.style.display="none";
+    }
+
+
+
+
+</script>
+</html>
