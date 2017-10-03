@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box {
+            width: 516px;
+            height: 498px;
+            background: url(bj.jpg);
+            margin: 20px auto 0;
+            position: relative;
+        }
+
+        #oUl {
+            width: 285px;
+            height: 285px;
+            position: absolute;
+            left: 0px;
+            top: 68px;
+            list-style: none;
+            margin-left: 0;
+        }
+
+        #text {
+            width: 320px;
+            height: 80px;
+            position: absolute;
+            left: 0;
+            bottom: 20px;
+            outline: none;
+            border: none;
+        }
+
+        #btn {
+            position: absolute;
+            right: 210px;
+            bottom: 19px;
+            height: 20px;
+        }
+
+        #oSel {
+            position: absolute;
+            bottom: 20px;
+            right: 190px;
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="oUl">
+
+    </ul>
+    <textarea id="text"></textarea>
+    <input type="button" value="发送" id="btn"/>
+    <select id="oSel">
+        <option value="e">按下enter发送</option>
+        <option value="c">按下ctrl+enter发送</option>
+    </select>
+</div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var oText = $("text");
+    var oBtn = $("btn");
+    var oUl = $("oUl");
+    var oSel = $("oSel");
+    oText.focus();
+    //    直接点击发送
+    oBtn.onclick = function () {
+        send();
+    }
+
+    function send() {
+        var str = oText.value;
+        oUl.innerHTML += "<li>" + str + "</li>";
+        oText.value = "";
+        oText.focus();
+    }
+    //    按下键盘
+    document.onkeydown = function (e) {
+        e = e || event;
+        if (e.keyCode == 13 && !e.ctrlKey) {
+            if (oSel.value == "e") {
+                send();
+            }
+        }
+        if (e.keyCode == 13 && e.ctrlKey) {
+            if (oSel.value == "c") {
+                send();
+            }
+        }
+    }
+
+
+
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body style="height: 2000px;">
+<div id="box"></div>
+</body>
+<script>
+    var oBox = document.getElementById("box");
+
+    oBox.onmousedown = function (e) {
+        e = e || event;
+        var disX = e.clientX - oBox.offsetLeft;
+        var disY = e.clientY - oBox.offsetTop;
+
+        document.onmousemove = function (e) {
+            e = e || event;
+            var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+            var x = e.clientX - disX;
+            var y = e.clientY - scrollT - disY;
+            limit(x,y,oBox);
+//            oBox.style.left = x + "px";
+//            oBox.style.top = y + "px";
+        }
+
+    }
+    document.onmouseup = function () {
+        document.onmousemove = null;
+    }
+    function limit(x,y,obj) {
+        if (x < 0) {
+            x = 0;
+        }
+        if (x > document.documentElement.clientWidth - obj.offsetWidth) {
+            x = document.documentElement.clientWidth - obj.offsetWidth;
+        }
+        if (y < 0) {
+            y = 0;
+        }
+        if (y > document.documentElement.clientHeight - obj.offsetHeight){
+            y = document.documentElement.clientHeight - obj.offsetHeight;
+        }
+        obj.style.left = x+"px";
+        obj.style.top = y+"px";
+    }
+
+
+</script>
+</html>

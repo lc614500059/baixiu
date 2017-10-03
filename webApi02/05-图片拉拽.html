@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+        img {
+            width: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<img src="xn.png" alt=""/>
+<img src="xn.png" alt=""/>
+<img src="xn.png" alt=""/>
+<img src="xn.png" alt=""/>
+<img src="xn.png" alt=""/>
+<img src="xn.png" alt=""/>
+
+</body>
+<script>
+    var aImg = document.getElementsByTagName("img");
+
+    for (var i = 0; i < aImg.length; i++) {
+        drag(aImg[i]);
+    }
+    function drag(obj) {
+
+        obj.onmousedown = function (ev) {
+
+            ev = ev || event;
+            if (ev.preventDefault) {// 标准浏览器下阻止默认行为
+                ev.preventDefault();
+            }
+
+            ev.returnValue && (ev.returnValue = false);  // 短路写法
+
+            obj.setCapture && obj.setCapture();
+
+            var disX = ev.clientX - this.offsetLeft;
+            var disY = ev.clientY - this.offsetTop;
+
+            //在整个文档下 添加鼠标移动事件
+            document.onmousemove = function (ev) {
+                ev = ev || event;
+
+                // 要让img 跟着我的鼠标走了
+                obj.style.left = ev.clientX - disX + "px";
+                obj.style.top = ev.clientY - disY + "px";
+            }
+
+            // 鼠标弹起 取消事件
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                // 让图片释放全局捕获
+                obj.releaseCapture && obj.releaseCapture();
+            }
+        }
+
+
+    }
+
+
+</script>
+</html>

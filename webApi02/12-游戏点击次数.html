@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 400px;
+            height: 300px;
+            background: red;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        input {
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: pink;
+            color: white;
+            margin: 30px auto;
+            display: block;
+        }
+
+        p {
+            text-align: center;
+            font-size: 30px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <p>倒计时5秒</p>
+    <input type="button" value="单击开始"/>
+
+    <p>共点击了0次</p>
+</div>
+</body>
+<script>
+    var oP = document.getElementsByTagName("p");
+    var oInp = document.getElementsByTagName("input")[0];
+    var timer = null;
+    var num = 0;
+    var k = 5;
+
+    timer = setInterval(function () {
+        k--;
+        oP[0].innerHTML = "倒计时" + k + "秒";
+
+        if (k == 0) {
+            clearInterval(timer);
+            timer = null;
+            oInp.disabled = true;
+            oInp.style.background = "gray";
+
+        }
+    }, 1000);
+    oInp.onclick = function () {
+        num++;
+        oP[1].innerHTML = "共点击了" + num + "次";
+
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    var urlStr = "http:// www.baidu.com:80/login/login.php?username=zhangsan&age=26&password=1234";
+    console.log(query(urlStr));
+    function query(str) {
+        var obj = {};
+        var idx = str.indexOf("?");
+        var data = str.substring(idx+1);
+        var arrData = data.split("&");//["username=zhangsan","age=26","password=1234"]
+        for (var i = 0; i < arrData.length; i++) {
+            var smallArr = arrData[i].split("=");//["username","zhangsn"]["age","26"]["password","1234"]
+            obj[smallArr[0]] = smallArr[1];//obj["username"]="zhangsan"===>obj.username="zhangsan"
+        }
+        return obj;
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        h1 {
+            text-align: center;
+            margin: 100px 0;
+        }
+
+
+    </style>
+</head>
+<body>
+<h1><span>5</span>秒钟后页面将跳转到<a href="http://www.itcast.cn">传智播客</a></h1>
+</body>
+<script>
+    var oSpan = document.getElementsByTagName("span")[0];
+    var timer = null;
+    var num = 5;
+    timer = setInterval(function () {
+        num--;
+        oSpan.innerHTML = num;
+        if (num == 0) {
+            clearInterval(timer);
+            timer = null;
+            location.href = "http://www.itcast.cn";
+        }
+
+
+
+    }, 1000)
+
+</script>
+</html>

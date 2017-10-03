@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #smallBox {
+            width: 480px;
+            height: 288px;
+            position: relative;
+            background: url(img/small.png) no-repeat;
+            left: 100px;
+            top: 100px;
+        }
+
+        #float {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background: url(img/bj.png) repeat;
+            display: none;
+            cursor: move;
+        }
+
+        #big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            /*border: 1px solid red;*/
+            left: 600px;
+            top: 100px;
+            background: url(img/big.jpg)  no-repeat;
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="smallBox">
+    <div id="float"></div>
+</div>
+<div id="big"></div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var oSmallBox = $("smallBox");
+    var oFloat = $("float");
+    var oBig = $("big");
+    //    移上显示
+    oSmallBox.onmouseover = function () {
+        oFloat.style.display = "block";
+        oBig.style.display = "block";
+    }
+    oSmallBox.onmousemove = function (e) {
+        e = e || event;
+        var x = e.clientX - this.offsetLeft - oFloat.offsetWidth / 2;
+        var y = e.clientY - this.offsetTop - oFloat.offsetHeight / 2;
+
+        x = x < 0 ? 0 : x;
+        x = x > this.offsetWidth - oFloat.offsetWidth ? this.offsetWidth - oFloat.offsetWidth : x;
+        y = y < 0 ? 0 : y;
+        y = y > this.offsetHeight - oFloat.offsetHeight ? this.offsetHeight - oFloat.offsetHeight : y;
+
+        oFloat.style.left = x + "px";
+        oFloat.style.top = y + "px";
+
+        oBig.style.backgroundPosition=-4*x+"px "+ -4*y+"px";
+    }
+
+
+    //    移下消失
+    oSmallBox.onmouseout = function () {
+        oFloat.style.display = "none";
+        oBig.style.display = "none";
+    }
+
+</script>
+</html>
