@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+            position: relative;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+</body>
+<script>
+    //    食物的属性 width height color x y
+    (function (window) {
+        function Food(width, height, color, x, y) {
+            //初始化
+            this.width = width || 25;
+            this.height = height || 25;
+            this.color = color || "blue";
+            this.x = x || 0;
+            this.y = y || 0;
+        }
+
+        Food.prototype.render = function (map) {
+            //食物的随机出现
+            this.x = parseInt(Math.random() * (map.offsetWidth / this.width)) * this.width;
+            this.y = parseInt(Math.random() * (map.offsetHeight / this.height)) * this.height;
+
+
+            var oDiv = document.createElement("div");
+            //div的大小
+            oDiv.style.width = this.width + "px";
+            oDiv.style.height = this.height + "px";
+            //div的位置
+            oDiv.style.left = this.x + "px";
+            oDiv.style.top = this.y + "px";
+            //颜色
+            this.color="rgb("+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+")";
+            oDiv.style.backgroundColor = this.color;
+            //添加在地图上的绝对定位
+            oDiv.style.position = "absolute";
+
+            map.appendChild(oDiv);
+
+        }
+
+        window.Food = Food;
+    })(window);
+
+    var oMap = document.getElementById("map");
+    var food = new Food();
+    food.render(oMap);
+
+
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+            position: relative;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+</body>
+<script src="food.js"></script>
+<script src="snake.js"></script>
+<script>
+    (function (window) {
+        //游戏构造函数
+        function Game() {
+            //实例化食物
+            this.food = new Food();
+            //实例化蛇
+            this.snake = new Snake();
+            //实例化地图,挂载到this上
+            this.map = map;
+        };
+        //触发事件
+        Game.prototype.start = function () {
+            this.food.render(this.map);
+            this.snake.render(this.map);
+        }
+
+
+        window.Game = Game;
+    })(window);
+
+    var oMap = document.getElementById("map");
+//    var food = new Food();
+//    food.render(oMap);
+//
+//    var snake = new Snake();
+//    snake.render(oMap);
+
+    var game=new Game(oMap);
+    game.start();
+
+</script>
+</html>
