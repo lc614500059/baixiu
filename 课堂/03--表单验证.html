@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 380px;
+            height: 250px;
+            background-color: #ccc;
+            padding: 30px;
+            margin: 50px auto;
+        }
+
+        span {
+            font-size: 12px;
+        }
+
+        #strong {
+            margin-top: 5px;
+            height: 16px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .right {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    QQ号：<input type="text" id="txtQQ"><span></span><br><br>
+    邮&nbsp;&nbsp;箱：<input type="text" id="txtEMail"><span></span><br><br>
+    手&nbsp;&nbsp;机：<input type="text" id="txtPhone"><span></span><br><br>
+    生&nbsp;&nbsp;日：<input type="text" id="txtBirthday"><span></span><br><br>
+    姓&nbsp;&nbsp;名：<input type="text" id="txtName"><span></span><br><br>
+    密码强度:<input type="password" id="txtPassword"><span></span>
+
+    <div id="strong"></div>
+</div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    //    var oBox = $("box");
+    var oTxtQQ = $("txtQQ");
+    var oTxtEMail = $("txtEMail");
+    var oTxtPhone = $("txtPhone");
+    var oTxtBirthday = $("txtBirthday");
+    var oTxtName = $("txtName");
+    var oTxtPassword = $("txtPassword");
+    var oSpan = document.getElementsByTagName("span");
+
+    //QQ号
+    oTxtQQ.onblur = function () {
+        var str = oTxtQQ.value;
+        var re = /^[1-9]\d{4,9}$/;
+        if (re.test(str)) {
+            oSpan[0].innerHTML = "输入正确！";
+            oSpan[0].className = "right";
+        } else {
+            oSpan[0].innerHTML = "请输入5-10位！";
+            oSpan[0].className = "error";
+        }
+    }
+
+    //邮箱
+    oTxtEMail.onblur = function () {
+        var str = oTxtEMail.value;
+        var re = /^\w+@[a-z0-9]+(\.[a-z]+){1,3}$/;
+        if (re.test(str)) {
+            oSpan[1].innerHTML = "输入正确！";
+            oSpan[1].className = "right";
+        } else {
+            oSpan[1].innerHTML = "请按格式输入！";
+            oSpan[1].className = "error";
+        }
+    }
+
+    //手机
+    oTxtPhone.onblur = function () {
+        var str = oTxtPhone.value;
+        var re = /^1[^0-2]\d{9}$/;
+        if (re.test(str)) {
+            oSpan[2].innerHTML = "输入正确！";
+            oSpan[2].className = "right";
+        } else {
+            oSpan[2].innerHTML = "请输入11位数字！";
+            oSpan[2].className = "error";
+        }
+    }
+
+    //生日
+    oTxtBirthday.onblur = function () {
+        var str = oTxtBirthday.value;
+        var re = /^[1-2]\d{3}(\.{1})([0][1-9]|[1][0-2])(\.{1})([0][1-9]|[1][0-9]|[2][0-9]|[3][0-1])$/;
+        if (re.test(str)) {
+            oSpan[3].innerHTML = "输入正确！";
+            oSpan[3].className = "right";
+        } else {
+            oSpan[3].innerHTML = "请按格式输入！";
+            oSpan[3].className = "error";
+        }
+    }
+    //姓名
+    oTxtName.onblur = function () {
+        var str = oTxtName.value;
+        var re = /^[\u4e00-\u9fa5]{2,4}$/;
+        if (re.test(str)) {
+            oSpan[4].innerHTML = "输入正确！";
+            oSpan[4].className = "right";
+        } else {
+            oSpan[4].innerHTML = "请按格式输入！";
+            oSpan[4].className = "error";
+        }
+    }
+
+    //密码
+    oTxtPassword.onblur = function () {
+        var str = oTxtPassword.value;
+        var re = /^\w{6,12}$/;
+        if (re.test(str)) {
+            oSpan[5].innerHTML = "输入正确！";
+            oSpan[5].className = "right";
+        } else {
+            oSpan[5].innerHTML = "请输入6-12位！";
+            oSpan[5].className = "error";
+        }
+    }
+
+
+</script>
+</html>
