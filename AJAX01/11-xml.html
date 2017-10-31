@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var xhr = new XMLHttpRequest()
+      xhr.open('GET', 'xml.php')
+      xhr.send()
+      xhr.onteadystatechange = function () {
+          if (this.readyState !== 4) return
+          console.log(this.responseXML.documentElevent.children[0].innerHTML)
+          console.log(this.responseXML.documentElevent.getEleventByTagName('name')[0])
+          
+      }
+    
+    </script>
+</body>
+</html>

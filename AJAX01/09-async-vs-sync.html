@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var xhrAsync = new XMLHttpRequest()
+      //open第三个参数是async，可以传入一个默认值 默认是true
+      xhrAsync.open('GET', 'time.php', true)
+      console.time('async')
+      xhrAsync.send()
+      console.log(xhrAsync.responseText)
+
+      console.timeEnd('async')
+
+
+      var xhrSync = new XMLHttpRequest()
+
+      xhrSync.open('GET', 'time.php', false)
+      console.time('sync')
+      xhrSync.send()
+      console.log(xhrSync.responseText)
+      console.timeEnd('sync')
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list"></ul>
+    <script>
+        var listElement = document.getElementById('list')
+
+        var xhr = new XMLHttpRequest()
+
+        xhr.open('GET', '02-users.php')
+
+        xhr.send()
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState !== 4) return
+            var data = JSON.parse(this.responseText)
+
+            for (var i = 0; i < data.length; i++) {
+                var liElement = document.createElement('li')
+                liElement.innerHTML = data[i].name
+                liElement.id = data[i].id
+
+                listElement.appendChild(liElement)
+                liElement.addEventListener('click', function () {
+                    var xhr1 = new XMLHttpRequest()
+
+                    xhr1.open('GET', '02-users.php?id=' + this.id)
+                    xhr1.send()
+                    xhr1.onreadystatechange = function () {
+                        if (this.readyState !== 4) return
+                        var obj = JSON.parse(this.responseText)
+                        alert(obj.age)
+                    }
+
+                })
+            }
+
+        }
+        // 
+        // for (var i = 0; i < liElement.children.length; i++) {
+        //     liElement.children[i].
+        // }
+    </script>
+</body>
+
+</html>
