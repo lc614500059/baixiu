@@ -1,3 +1,39 @@
+<?php
+
+require_once '../functions.php';
+
+xiu_get_current_user();
+
+function add_category () {
+  if (empty($_POST['email']) || empty($_POST['slug']) || empty($_POST['nickname']) || empty($_POST['password'])) {
+    $GLOBALS['message'] = '请完整填写表单！';
+    $GLOBALS['success'] = false;
+    return;
+  }
+
+  // 接收并保存
+  $email = $_POST['email'];
+  $slug = $_POST['slug'];
+  $nickname = $_POST['nickname'];
+  $password = $_POST['password'];
+
+  // xiu_execute("insert into users values (null,'{$slug}','{$email}','{$nickname}','管理员','/static/uploads/avatar.jpg',null,'{$password}') ");
+  $rows = xiu_execute("insert into users values (null, '{$slug}', '{$email}', '{$nickname}', '管理员','/static/uploads/avatar.jpg', null, '{$password}');");
+  
+  $GLOBALS['success'] = $rows > 0;
+  $GLOBALS['message'] = $rows <= 0 ? '添加失败！' : '添加成功！';
+}
+
+ // 添加
+ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  add_category();
+}
+
+// 查询全部的分类数据
+$users = xiu_fetch_all('select * from users;');
+
+?>
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -20,12 +56,20 @@
         <h1>用户</h1>
       </div>
       <!-- 有错误信息时展示 -->
-      <!-- <div class="alert alert-danger">
-        <strong>错误！</strong>发生XXX错误
-      </div> -->
+      <?php if (isset($message)): ?>
+      <?php if ($success): ?>
+      <div class="alert alert-success">
+        <strong>成功！</strong> <?php echo $message; ?>
+      </div>
+      <?php else: ?>
+      <div class="alert alert-danger">
+        <strong>错误！</strong> <?php echo $message; ?>
+      </div>
+      <?php endif ?>
+      <?php endif ?>
       <div class="row">
         <div class="col-md-4">
-          <form>
+          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <h2>添加新用户</h2>
             <div class="form-group">
               <label for="email">邮箱</label>
@@ -52,7 +96,7 @@
         <div class="col-md-8">
           <div class="page-action">
             <!-- show when multiple checked -->
-            <a class="btn btn-danger btn-sm" href="javascript:;" style="display: none">批量删除</a>
+            <a  id="btn_delete" class="btn btn-danger btn-sm" href="/admin/user-delete.php" style="display: none">批量删除</a>
           </div>
           <table class="table table-striped table-bordered table-hover">
             <thead>
@@ -67,42 +111,20 @@
               </tr>
             </thead>
             <tbody>
+            <?php foreach ($users as $item): ?>
               <tr>
-                <td class="text-center"><input type="checkbox"></td>
-                <td class="text-center"><img class="avatar" src="/static/assets/img/default.png"></td>
-                <td>i@zce.me</td>
-                <td>zce</td>
-                <td>汪磊</td>
+                <td class="text-center"><input type="checkbox" data-id="<?php echo $item['id']; ?>"></td>
+                <td class="text-center"><img class="avatar" src="/static/uploads/avatar.jpg"></td>
+                <td><?php echo $item['email']; ?></td>
+                <td><?php echo $item['slug']; ?></td>
+                <td><?php echo $item['nickname']; ?></td>
                 <td>激活</td>
                 <td class="text-center">
                   <a href="post-add.php" class="btn btn-default btn-xs">编辑</a>
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                  <a href="user-delete.php?id=<?php echo $item['id'] ?>" class="btn btn-danger btn-xs">删除</a>
                 </td>
               </tr>
-              <tr>
-                <td class="text-center"><input type="checkbox"></td>
-                <td class="text-center"><img class="avatar" src="/static/assets/img/default.png"></td>
-                <td>i@zce.me</td>
-                <td>zce</td>
-                <td>汪磊</td>
-                <td>激活</td>
-                <td class="text-center">
-                  <a href="post-add.php" class="btn btn-default btn-xs">编辑</a>
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="text-center"><input type="checkbox"></td>
-                <td class="text-center"><img class="avatar" src="/static/assets/img/default.png"></td>
-                <td>i@zce.me</td>
-                <td>zce</td>
-                <td>汪磊</td>
-                <td>激活</td>
-                <td class="text-center">
-                  <a href="post-add.php" class="btn btn-default btn-xs">编辑</a>
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-                </td>
-              </tr>
+            <?php endforeach ?>
             </tbody>
           </table>
         </div>
@@ -116,5 +138,29 @@
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script>NProgress.done()</script>
+  <script>
+    $(function ($) {
+
+      var $tbodyCheckboxs = $('tbody input')
+      var $btnDelete = $('#btn_delete')
+
+      var all = []
+      $tbodyCheckboxs.on('change', function () {
+       
+        var id = $(this).data('id')
+
+        if ($(this).prop('checked')) {
+          all.push(id)
+        } else {
+          all.splice(all.indexOf(id), 1)
+        }
+
+        all.length ? $btnDelete.fadeIn() : $btnDelete.fadeOut()
+        $btnDelete.prop('search', '?id=' + all)
+      
+    })
+   })
+  
+  </script>
 </body>
 </html>
